@@ -110,18 +110,3 @@ func (mr *MockSubnetsClientAPIMockRecorder) List(arg0, arg1, arg2 interface{}) *
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockSubnetsClientAPI)(nil).List), arg0, arg1, arg2)
 }
-
-// PrepareNetworkPolicies mocks base method
-func (m *MockSubnetsClientAPI) PrepareNetworkPolicies(arg0 context.Context, arg1, arg2, arg3 string, arg4 network.PrepareNetworkPoliciesRequest) (network.SubnetsPrepareNetworkPoliciesFuture, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "PrepareNetworkPolicies", arg0, arg1, arg2, arg3, arg4)
-	ret0, _ := ret[0].(network.SubnetsPrepareNetworkPoliciesFuture)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// PrepareNetworkPolicies indicates an expected call of PrepareNetworkPolicies
-func (mr *MockSubnetsClientAPIMockRecorder) PrepareNetworkPolicies(arg0, arg1, arg2, arg3, arg4 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PrepareNetworkPolicies", reflect.TypeOf((*MockSubnetsClientAPI)(nil).PrepareNetworkPolicies), arg0, arg1, arg2, arg3, arg4)
-}

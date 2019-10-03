@@ -277,21 +277,6 @@ func (mr *MockVirtualMachinesClientAPIMockRecorder) Redeploy(arg0, arg1, arg2 in
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Redeploy", reflect.TypeOf((*MockVirtualMachinesClientAPI)(nil).Redeploy), arg0, arg1, arg2)
 }
 
-// Reimage mocks base method
-func (m *MockVirtualMachinesClientAPI) Reimage(arg0 context.Context, arg1, arg2 string, arg3 *compute.VirtualMachineReimageParameters) (compute.VirtualMachinesReimageFuture, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Reimage", arg0, arg1, arg2, arg3)
-	ret0, _ := ret[0].(compute.VirtualMachinesReimageFuture)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// Reimage indicates an expected call of Reimage
-func (mr *MockVirtualMachinesClientAPIMockRecorder) Reimage(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Reimage", reflect.TypeOf((*MockVirtualMachinesClientAPI)(nil).Reimage), arg0, arg1, arg2, arg3)
-}
-
 // Restart mocks base method
 func (m *MockVirtualMachinesClientAPI) Restart(arg0 context.Context, arg1, arg2 string) (compute.VirtualMachinesRestartFuture, error) {
 	m.ctrl.T.Helper()

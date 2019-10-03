@@ -120,7 +120,7 @@ func (s *Service) Reconcile(ctx context.Context, spec interface{}) error {
 							BackendPort:          to.Int32Ptr(s.Scope.APIServerPort()),
 							IdleTimeoutInMinutes: to.Int32Ptr(4),
 							EnableFloatingIP:     to.BoolPtr(false),
-							LoadDistribution:     network.LoadDistributionDefault,
+							LoadDistribution:     network.Default,
 							FrontendIPConfiguration: &network.SubResource{
 								ID: to.StringPtr(fmt.Sprintf("/%s/%s/frontendIPConfigurations/%s", idPrefix, lbName, frontEndIPConfigName)),
 							},
