@@ -24,7 +24,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	network "github.com/Azure/azure-sdk-for-go/services/network/mgmt/2019-06-01/network"
+	network "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 	gomock "github.com/golang/mock/gomock"
 )
 

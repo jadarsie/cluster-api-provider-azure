@@ -24,7 +24,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	resources "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2019-05-01/resources"
+	resources "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/resources/mgmt/resources"
 	autorest "github.com/Azure/go-autorest/autorest"
 	gomock "github.com/golang/mock/gomock"
 )
