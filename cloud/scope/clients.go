@@ -24,4 +24,5 @@ import (
 type AzureClients struct {
 	SubscriptionID string
 	Authorizer     autorest.Authorizer
+	BaseURI        string
 }

@@ -32,8 +32,9 @@ type Service struct {
 }
 
 // getGroupsClient creates a new groups client from subscriptionid.
-func getSecurityGroupsClient(subscriptionID string, authorizer autorest.Authorizer) network.SecurityGroupsClient {
+func getSecurityGroupsClient(subscriptionID, baseURI string, authorizer autorest.Authorizer) network.SecurityGroupsClient {
 	securityGroupsClient := network.NewSecurityGroupsClient(subscriptionID)
+	securityGroupsClient.BaseURI = baseURI
 	securityGroupsClient.Authorizer = authorizer
 	securityGroupsClient.AddToUserAgent(azure.UserAgent)
 	return securityGroupsClient
@@ -42,7 +43,7 @@ func getSecurityGroupsClient(subscriptionID string, authorizer autorest.Authoriz
 // NewService creates a new groups service.
 func NewService(scope *scope.ClusterScope) *Service {
 	return &Service{
-		Client: getSecurityGroupsClient(scope.SubscriptionID, scope.Authorizer),
+		Client: getSecurityGroupsClient(scope.SubscriptionID, scope.BaseURI, scope.Authorizer),
 		Scope:  scope,
 	}
 }

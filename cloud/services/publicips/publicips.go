@@ -62,7 +62,7 @@ func (s *Service) Reconcile(ctx context.Context, spec interface{}) error {
 		s.Scope.AzureCluster.Spec.ResourceGroup,
 		ipName,
 		network.PublicIPAddress{
-			Sku:      &network.PublicIPAddressSku{Name: network.PublicIPAddressSkuNameStandard},
+			Sku:      &network.PublicIPAddressSku{Name: network.PublicIPAddressSkuNameBasic},
 			Name:     to.StringPtr(ipName),
 			Location: to.StringPtr(s.Scope.Location()),
 			PublicIPAddressPropertiesFormat: &network.PublicIPAddressPropertiesFormat{

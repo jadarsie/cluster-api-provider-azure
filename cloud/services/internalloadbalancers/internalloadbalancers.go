@@ -82,7 +82,7 @@ func (s *Service) Reconcile(ctx context.Context, spec interface{}) error {
 		s.Scope.AzureCluster.Spec.ResourceGroup,
 		lbName,
 		network.LoadBalancer{
-			Sku:      &network.LoadBalancerSku{Name: network.LoadBalancerSkuNameStandard},
+			Sku:      &network.LoadBalancerSku{Name: network.LoadBalancerSkuNameBasic},
 			Location: to.StringPtr(s.Scope.Location()),
 			LoadBalancerPropertiesFormat: &network.LoadBalancerPropertiesFormat{
 				FrontendIPConfigurations: &[]network.FrontendIPConfiguration{

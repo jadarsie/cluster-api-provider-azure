@@ -65,6 +65,7 @@ func NewClusterScope(params ClusterScopeParams) (*ClusterScope, error) {
 		return nil, errors.New("error creating azure services. Environment variable AZURE_SUBSCRIPTION_ID is not set")
 	}
 	params.AzureClients.SubscriptionID = subscriptionID
+	params.AzureClients.BaseURI = "https://management.westus2.stackpoc.com/"
 
 	helper, err := patch.NewHelper(params.AzureCluster, params.Client)
 	if err != nil {

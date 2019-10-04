@@ -32,8 +32,9 @@ type Service struct {
 }
 
 // getGroupsClient creates a new groups client from subscriptionid.
-func getNetworkInterfacesClient(subscriptionID string, authorizer autorest.Authorizer) network.InterfacesClient {
+func getNetworkInterfacesClient(subscriptionID, baseURI string, authorizer autorest.Authorizer) network.InterfacesClient {
 	nicClient := network.NewInterfacesClient(subscriptionID)
+	nicClient.BaseURI = baseURI
 	nicClient.Authorizer = authorizer
 	nicClient.AddToUserAgent(azure.UserAgent)
 	return nicClient
@@ -42,7 +43,7 @@ func getNetworkInterfacesClient(subscriptionID string, authorizer autorest.Autho
 // NewService creates a new groups service.
 func NewService(scope *scope.ClusterScope) *Service {
 	return &Service{
-		Client: getNetworkInterfacesClient(scope.SubscriptionID, scope.Authorizer),
+		Client: getNetworkInterfacesClient(scope.SubscriptionID, scope.BaseURI, scope.Authorizer),
 		Scope:  scope,
 	}
 }
