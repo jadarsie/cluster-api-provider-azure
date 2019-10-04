@@ -46,7 +46,7 @@ spec:
         osType: "Linux"
         diskSizeGB: 30
         managedDisk:
-          storageAccountType: "Premium_LRS"
+          storageAccountType: "Standard_LRS"
       sshPublicKey: ${SSH_PUBLIC_KEY}
 ---
 apiVersion: bootstrap.cluster.x-k8s.io/v1alpha2
@@ -72,6 +72,11 @@ spec:
           #!/bin/bash
 
           set -euxo pipefail
+
+          function trust_certs() {
+            cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azsCertificate.crt
+            update-ca-certificates
+          }
 
           function containerd_prereq() {
             cat > /etc/modules-load.d/containerd.conf <<EOF
@@ -122,6 +127,7 @@ spec:
             apt-mark hold kubelet kubeadm kubectl
           }
 
+          trust_certs
           containerd_prereq
           containerd_install
           kubernetes_install
