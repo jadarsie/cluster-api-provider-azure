@@ -54,7 +54,7 @@ func NewClusterScope(params ClusterScopeParams) (*ClusterScope, error) {
 		params.Logger = klogr.New()
 	}
 
-	authorizer, err := auth.NewAuthorizerFromEnvironment()
+	authorizer, err := auth.NewAuthorizerFromEnvironmentWithResource("https://management.stackpoc.com/714ca62e-0c4f-48ba-8e75-d5af9c009231")
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to create azure session")
 	}
