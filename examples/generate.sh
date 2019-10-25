@@ -87,12 +87,6 @@ fi
 
 mkdir -p "${OUTPUT_DIR}"
 
-AZURE_SUBSCRIPTION_ID="1d36a9a4-533a-432f-96b4-edce7dbaafe3"
-AZURE_TENANT_ID="mashybridpartner.onmicrosoft.com"
-AZURE_CLIENT_ID="29320a73-239e-4d77-bd79-b47f2ff5417a"
-AZURE_CLIENT_SECRET="c6_*hIaYzjgUuqpL-9w15+4@Dz[zpyF3"
-AZURE_LOCATION="westus2"
-
 # Verify the required Environment Variables are present.
 : "${AZURE_SUBSCRIPTION_ID:?Environment variable empty or not defined.}"
 : "${AZURE_TENANT_ID:?Environment variable empty or not defined.}"

@@ -305,19 +305,13 @@ create-cluster: $(CLUSTERCTL) ## Create a development Kubernetes cluster on Azur
 
 .PHONY: create-cluster-management
 create-cluster-management: $(CLUSTERCTL) ## Create a development Kubernetes cluster on Azure in a KIND management cluster.
-	kind create cluster --name=clusterapi
+	kind create cluster --name=stackapi
 	# Apply provider-components.
-	kubectl \
-		--kubeconfig=$$(kind get kubeconfig-path --name="clusterapi") \
-		create -f examples/_out/provider-components.yaml
+	kubectl create -f examples/_out/provider-components.yaml
 	# Create Cluster.
-	kubectl \
-		--kubeconfig=$$(kind get kubeconfig-path --name="clusterapi") \
-		create -f examples/_out/cluster.yaml
+	kubectl create -f examples/_out/cluster.yaml
 	# Create control plane machine.
-	kubectl \
-		--kubeconfig=$$(kind get kubeconfig-path --name="clusterapi") \
-		create -f examples/_out/controlplane.yaml
+	kubectl create -f examples/_out/controlplane.yaml
 	# Get KubeConfig using clusterctl.
 	$(CLUSTERCTL) \
 		alpha phases get-kubeconfig -v=3 \
