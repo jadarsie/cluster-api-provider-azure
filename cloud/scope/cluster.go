@@ -54,7 +54,7 @@ func NewClusterScope(params ClusterScopeParams) (*ClusterScope, error) {
 		params.Logger = klogr.New()
 	}
 
-	authorizer, err := auth.NewAuthorizerFromEnvironmentWithResource("https://management.masselfhost.onmicrosoft.com/0f237931-e2a3-402d-a489-686a4cb547c1")
+	authorizer, err := auth.NewAuthorizerFromEnvironmentWithResource("https://management.stackpoc.com/714ca62e-0c4f-48ba-8e75-d5af9c009231")
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to create azure session")
 	}
@@ -65,7 +65,7 @@ func NewClusterScope(params ClusterScopeParams) (*ClusterScope, error) {
 		return nil, errors.New("error creating azure services. Environment variable AZURE_SUBSCRIPTION_ID is not set")
 	}
 	params.AzureClients.SubscriptionID = subscriptionID
-	params.AzureClients.BaseURI = "https://management.orlando.azurestack.corp.microsoft.com/"
+	params.AzureClients.BaseURI = "https://management.westus2.stackpoc.com/"
 
 	helper, err := patch.NewHelper(params.AzureCluster, params.Client)
 	if err != nil {
