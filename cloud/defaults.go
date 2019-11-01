@@ -32,7 +32,7 @@ const (
 	// DefaultInternalLBIPAddress is the default internal load balancer ip address
 	DefaultInternalLBIPAddress = "10.0.0.100"
 	// DefaultAzureDNSZone is the default provided azure dns zone
-	DefaultAzureDNSZone = "local.cloudapp.azurestack.external"
+	DefaultAzureDNSZone = "cloudapp.azurestack.external"
 	// UserAgent used for communicating with azure
 	UserAgent = "cluster-api-azure-services"
 )
