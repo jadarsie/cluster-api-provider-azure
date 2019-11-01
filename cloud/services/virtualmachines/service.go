@@ -17,6 +17,8 @@ limitations under the License.
 package virtualmachines
 
 import (
+	"time"
+
 	"github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 	"github.com/Azure/go-autorest/autorest"
 	azure "sigs.k8s.io/cluster-api-provider-azure/cloud"
@@ -36,6 +38,7 @@ func getVirtualMachinesClient(subscriptionID, baseURI string, authorizer autores
 	vmClient := compute.NewVirtualMachinesClient(subscriptionID)
 	vmClient.BaseURI = baseURI
 	vmClient.Authorizer = authorizer
+	vmClient.PollingDuration = time.Hour * 1
 	vmClient.AddToUserAgent(azure.UserAgent)
 	return vmClient
 }
