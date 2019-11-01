@@ -48,7 +48,7 @@ spec:
         cloud-provider: azure
         cloud-config: /etc/kubernetes/azure.json
   clusterConfiguration:
-    imageRepository: mcr.microsoft.com/k8s/azurestack/core/
+    imageRepository: xdarsie
     useHyperKubeImage: true
     apiServer:
       timeoutForControlPlane: 20m
