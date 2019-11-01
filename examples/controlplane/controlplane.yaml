@@ -165,7 +165,8 @@ spec:
         "useInstanceMetadata": false,
         "excludeMasterFromStandardLB": false,
         "aadClientID": "${AZURE_CLIENT_ID}",
-        "aadClientSecret": "${AZURE_CLIENT_SECRET}"
+        "aadClientSecret": "${AZURE_CLIENT_SECRET}",
+        "resourceManagerEndpoint": "https://management.local.azurestack.external"
       }
 ---
 apiVersion: cluster.x-k8s.io/v1alpha2
@@ -312,6 +313,7 @@ spec:
         "excludeMasterFromStandardLB": false,
         "aadClientID": "${AZURE_CLIENT_ID}",
         "aadClientSecret": "${AZURE_CLIENT_SECRET}"
+        "resourceManagerEndpoint": "https://management.local.azurestack.external"
       }
 ---
 apiVersion: cluster.x-k8s.io/v1alpha2
@@ -458,4 +460,5 @@ spec:
         "excludeMasterFromStandardLB": false,
         "aadClientID": "${AZURE_CLIENT_ID}",
         "aadClientSecret": "${AZURE_CLIENT_SECRET}"
+        "resourceManagerEndpoint": "https://management.local.azurestack.external"
       }
